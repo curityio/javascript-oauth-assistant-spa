@@ -13,7 +13,7 @@ A code example that uses the Curity OAuth Assistant npm library, which can imple
 
 ## Documentation
 
-The tutorial on [https://curity.io/resources/learn/oauth-assistant/](Javascript SPA using OAuth Assistant Library) explains how to run the sample and the configuration needed.
+The [Javascript SPA using OAuth Assistant Library](https://curity.io/resources/learn/oauth-assistant]) tutorial explains how to run the sample and the configuration settings needed.
 
 ## Licensing
 
