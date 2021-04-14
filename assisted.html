@@ -1,0 +1,89 @@
+<!--
+  ~ Copyright (C) 2020 Curity AB. All rights reserved.
+  ~
+  ~ The contents of this file are the property of Curity AB.
+  ~ You may not copy or use this file, in either source code
+  ~ or executable form, except in compliance with terms
+  ~ set by Curity AB.
+  ~
+  ~ For further information, please contact Curity AB.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assisted Authorize</title>
+
+    <script type="text/javascript" $!nonceAttr>
+        // Should be the origin where the app is running
+        const origin = window.origin;
+
+        function postUp(msg, origin) {
+            var channel = undefined;
+
+            //It's undefined in IE and null in Chrome...
+            if ((window.opener !== undefined) && (window.opener !== null)) {
+                channel = window.opener;
+            }
+            else {
+                channel = window.parent;
+            }
+
+            channel.postMessage(msg, origin);
+        }
+
+        if (window.location.search) {
+            const args = new URLSearchParams(window.location.search);
+
+            const error = args.get("error");
+            const code = args.get("code");
+            const state = args.get("state");
+            const session_state = args.get("session_state");
+
+            if (code !== null) {
+                postUp({session_state, code, state, status: "ok"}, origin);
+            }
+            else if (error !== null) {
+                postUp({"status" : "error", "error" : error, error_description: args.get("error_description")}, origin);
+            } else if (Array.from(args).length === 1 && state) {
+                // user logout success case
+                postUp({
+                    logout_successful: true,
+                    state
+                }, origin);
+            }
+        }
+        else if (window.location.hash) {
+            const fragment = window.location.hash.substr(1, window.location.hash.length);
+            const args = new URLSearchParams(fragment);
+            const access_token = args.get("access_token");
+            const expires_in = args.get("expires_in");
+            const state = args.get("state");
+            const session_state = args.get("session_state");
+            const scope = args.get("scope");
+            const id_token = args.get("id_token");
+
+            const error = args.get("error");
+
+            if (error !== null) {
+                postUp({"status" : "error", "error" : error, error_description: args.get("error_description")}, origin);
+            }
+            else if (access_token !== null && expires_in !== null) {
+                postUp({
+                    access_token,
+                    expires_in,
+                    state,
+                    session_state,
+                    scope,
+                    id_token,
+                    status: "ok"
+                }, origin);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello!</h1>
+</body>
+</html>
