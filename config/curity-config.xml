@@ -85,7 +85,7 @@
       <type xmlns:as="https://curity.se/ns/conf/profile/oauth">as:oauth-service</type>
       <settings>
         <authorization-server xmlns="https://curity.se/ns/conf/profile/oauth">
-          <issuer-override>https://localhost:8443/oauth/v2/oauth-anonymous</issuer-override>
+          <issuer-override>https://idsvr.example.com/oauth/v2/oauth-anonymous</issuer-override>
           <authentication-service>
             <authentication-profile>authentication-service</authentication-profile>
           </authentication-service>
