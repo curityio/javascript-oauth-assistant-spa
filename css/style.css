@@ -1,0 +1,294 @@
+/*
+ * Copyright (C) 2020 Curity AB. All rights reserved.
+ *
+ * The contents of this file are the property of Curity AB.
+ * You may not copy or use this file, in either source code
+ * or executable form, except in compliance with terms
+ * set by Curity AB.
+ *
+ * For further information, please contact Curity AB.
+ */
+
+:root {
+  --primary-color-light: #79839e;
+  --primary-color: #5f6880;
+  --primary-color-dark: #2a2f3a;
+  --bright: #d859a1;
+  --yellow: #f2eb80;
+}
+
+.primary-light {
+  color: var(--primary-color-light);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.primary-color-dark {
+  color: var(--primary-color-dark);
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto-Light", "Roboto", system-ui;
+  font-weight: 300;
+  color: var(--primary-color-dark);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto-Light", "Roboto", system-ui;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre,
+code {
+  font-family: "Roboto Mono", Consolas, Menlo, Monaco, monospace;
+}
+
+pre,
+input,
+textarea {
+  background: #282a36;
+  color: #f8f8f2;
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: "Roboto Mono", "SF Mono", Consolas, Menlo, Monaco, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+textarea, input {
+  width: 100%;
+}
+
+label {
+  display: block;
+  line-height: 2;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a0aec0'%3e%3cpath d='M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z'/%3e%3c/svg%3e");
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-color: #e2e8f0;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  padding-top: 0.5rem;
+  padding-right: 2.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  display: inline-flex;
+}
+
+button:not(.close) {
+  border: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+  font-weight: 400;
+  background-color: var(--primary-color);
+  color: white;
+  line-height: 1.40625rem;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+button:not(.close):hover {
+  background-color: var(--primary-color-light);
+}
+
+.container {
+  max-width: 60em;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  width: 100%;
+  color: white;
+  background-color: var(--primary-color-dark);
+  top: 0;
+  height: 60px;
+}
+
+header input {
+  color: white;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-family: "Roboto Mono", "SF Mono", Consolas, Menlo, Monaco, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  width: 300px;
+}
+
+header input::selection {
+  background-color: var(--bright);
+  outline: none;
+}
+
+header input:focus {
+  outline: none;
+}
+
+header div a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1rem;
+}
+
+header svg {
+  display: block;
+  height: 36px;
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav {
+  display: none;
+}
+
+@media (min-width: 60em) {
+  header nav {
+    display: inline-flex;
+  }
+}
+
+header li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+header a {
+  color: var(--yellow);
+}
+
+header code {
+  font-size: 0.75rem;
+}
+
+/* App */
+
+@media (min-width: 40em) {
+  main {
+    min-height: calc(100vh - 60px);
+  }
+}
+
+@media (min-width: 60em) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+  }
+}
+
+aside {
+  box-shadow: rgba(0, 0, 0, 0.05) 1px 0px 0px inset;
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+}
+
+section {
+  padding: 2rem;
+}
+
+section pre {
+  display: inline-flex;
+  min-width: 10em;
+  max-width: 90%;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+@media (min-width: 40em) {
+  section pre {
+    max-width: 50em;
+  }
+}
+
+section pre:empty {
+  display: none;
+}
+
+#authorizeSettings {
+  min-height: 460px;
+}
+
+iframe {
+  border-radius: 4px;
+}
+
+.number {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  display: inline-flex;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  background-color: var(--bright);
+}
+
+.mt2 {
+  margin-top: 1rem;
+}
