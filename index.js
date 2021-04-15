@@ -80,9 +80,9 @@ const checkSessionIframeEvents = {
 
 /** @type Assistant.Settings */
 const authorizeSettings = {
-    base_url                : "https://idsvr.example.com",
+    base_url                : "https://localhost:8443",
     client_id               : "oauth-assistant-client",
-    issuer                  : "https://idsvr.example.com/oauth/v2/oauth-anonymous",
+    issuer                  : "https://localhost:8443/oauth/v2/oauth-anonymous",
     redirect_uri            : window.origin + "/assisted.html",
     for_origin              : window.origin,
     flow_type               : "code",
@@ -96,7 +96,7 @@ const authorizeSettings = {
             backdropClass: "backdrop-class"
         }
     },
-    allowed_origins: ["https://idsvr.example.com", "http://localhost:8080"], // default is [window.origin]
+    allowed_origins: ["https://localhost:8443", "http://localhost:8080"], // default is [window.origin]
     check_session_iframe    : null,
     session_polling_interval: 5, // polling interval in seconds, default is 5
     allowed_jwt_algorithms  : ['RS256'],
