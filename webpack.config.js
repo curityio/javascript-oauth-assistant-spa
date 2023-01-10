@@ -12,7 +12,10 @@ module.exports = {
     sourceMapFilename: "[file].map",
   },
   devServer: {
-    contentBase: ".",
+    static: {
+      directory: path.join(__dirname, ""),
+    },
+    watchFiles: ["assisted.html", "index.html", "index.js", "css/style.css"]
   },
   module: {
     rules: [
