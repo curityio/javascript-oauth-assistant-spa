@@ -3,6 +3,14 @@
 [![Quality](https://img.shields.io/badge/quality-demo-red)](https://curity.io/resources/code-examples/status/)
 [![Availability](https://img.shields.io/badge/availability-source-blue)](https://curity.io/resources/code-examples/status/)
 
+---
+
+# This Repository is Archived
+
+**This repository is now archived. Please use the current version of the example application reposotiry: https://github.com/curityio/oauth-assistant-example.**
+
+---
+
 ## Overview
 
 A code example that uses the Curity OAuth Assistant npm library, which can implement all of these flows for a Javascript Single Page Application:
